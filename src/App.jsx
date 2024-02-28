@@ -10,8 +10,8 @@ function App() {
       <BackgroundHeading />
       <main>
         <Header />
-        <SideBar />
         <ItemList />
+        <SideBar />
       </main>
       <Footer />
     </>
