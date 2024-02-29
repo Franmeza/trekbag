@@ -1,11 +1,14 @@
 import Button from "./Button";
 
 function AddItemForm() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h2> Add an item</h2>
       <input type="text" />
-      <Button>Add to list</Button>
+      <Button type="submit">Add to list</Button>
     </form>
   );
 }

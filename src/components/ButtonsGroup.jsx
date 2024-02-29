@@ -1,11 +1,5 @@
 import Button from "./Button";
-
-const buttonActions = [
-  "Mark all as complete",
-  "Mark all as incomplete",
-  "Reset to initial",
-  "Remove all items",
-];
+import { buttonActions } from "../utils/constants";
 
 function ButtonsGroup() {
   return (
