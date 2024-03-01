@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
 import Button from "./Button";
 
-function AddItemForm({ setItems }) {
+function AddItemForm({ onAddItem }) {
   const [itemName, setItemName] = useState("");
   const [showWarning, setShowWarning] = useState(false);
 
   const inputRef = useRef(); //To reference the input element
 
   const handleChange = (e) => {
-    setShowWarning(false);
+    if (showWarning) setShowWarning(false);
     setItemName(e.target.value);
   };
 
@@ -20,13 +20,7 @@ function AddItemForm({ setItems }) {
       inputRef.current.focus(); // it focuses the
       return;
     }
-    const newItem = {
-      id: new Date().getTime(), //To create a unique id for each entry
-      name: itemName,
-      packed: false,
-    };
-
-    setItems((prev) => [...prev, newItem]);
+    onAddItem(itemName);
     setItemName("");
   };
 
