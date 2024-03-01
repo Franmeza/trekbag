@@ -1,4 +1,4 @@
-function Header() {
+function Header({ totalNumberOfItems, itemsPacked }) {
   return (
     <header className="header">
       <img
@@ -6,7 +6,7 @@ function Header() {
         alt="dots"
       />
       <p>
-        <b>1</b> / 3 items packed
+        <b>{itemsPacked}</b> / {totalNumberOfItems} items packed
       </p>
     </header>
   );
