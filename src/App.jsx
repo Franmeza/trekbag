@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BackgroundHeading from "./components/BackgroundHeading";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -7,7 +7,13 @@ import SideBar from "./components/SideBar";
 import { initialItems } from "./utils/constants";
 
 function App() {
-  const [items, setItems] = useState(initialItems);
+  //Initializing the items state with the function below, we will improve performance by avoiding interaction with local storage in every re-render. It will do it only the first time it renders
+  const [items, setItems] = useState(
+    () => JSON.parse(localStorage.getItem("items")) || initialItems
+  );
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
   const handleAddItem = (newItemName) => {
     const newItem = {

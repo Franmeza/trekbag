@@ -1,16 +1,21 @@
 import Select from "react-select";
 import EmptyView from "./EmptyView";
 import { sortingOptions } from "../utils/constants";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 function ItemList({ items, handleDeleteItem, handleToggleItem }) {
   const [sortBy, setSortBy] = useState("default");
 
-  const sortedItems = [...items].sort((a, b) => {
-    if (sortBy === "packed") return b.packed - a.packed;
-    if (sortBy === "unpacked") return a.packed - b.packed;
-    return;
-  });
+  //Using useMemo improve performance by not sorting every time the component re-renders. It will do only when items or sort by change
+  const sortedItems = useMemo(
+    () =>
+      [...items].sort((a, b) => {
+        if (sortBy === "packed") return b.packed - a.packed;
+        if (sortBy === "unpacked") return a.packed - b.packed;
+        return;
+      }),
+    [items, sortBy]
+  );
 
   return (
     <ul className="item-list">
