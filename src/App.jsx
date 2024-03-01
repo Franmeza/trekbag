@@ -14,7 +14,7 @@ function App() {
       <main>
         <Header />
         <ItemList items={items} />
-        <SideBar />
+        <SideBar setItems={setItems} />
       </main>
       <Footer />
     </>
