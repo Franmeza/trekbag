@@ -1,11 +1,13 @@
 import Select from "react-select";
 import EmptyView from "./EmptyView";
 import { sortingOptions } from "../utils/constants";
-import { useMemo, useState } from "react";
+import { useContext, useMemo, useState } from "react";
+import { ItemsContext } from "../contexts/ItemsContextProvider";
 
-function ItemList({ items, handleDeleteItem, handleToggleItem }) {
+function ItemList() {
   const [sortBy, setSortBy] = useState("default");
-
+  const { items, handleDeleteItem, handleToggleItem } =
+    useContext(ItemsContext);
   //Using useMemo improve performance by not sorting every time the component re-renders. It will do only when items or sort by change
   const sortedItems = useMemo(
     () =>

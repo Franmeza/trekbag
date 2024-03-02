@@ -1,4 +1,11 @@
-function Header({ totalNumberOfItems, itemsPacked }) {
+import { useItemContext } from "../hooks/useItemsContext";
+
+function Header() {
+  const { items } = useItemContext();
+
+  const totalNumberOfItems = items.length;
+  const itemsPacked = items.filter((items) => items.packed).length;
+
   return (
     <header className="header">
       <img

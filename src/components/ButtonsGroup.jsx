@@ -1,12 +1,15 @@
 import Button from "./Button";
 import { buttonActions } from "../utils/constants";
 
-function ButtonsGroup({
-  handleRemoveAllItems,
-  handleResetToInitial,
-  handleMarkAllAsComplete,
-  handleMarkAllAsIcomplete,
-}) {
+import { useItemContext } from "../hooks/useItemsContext";
+
+function ButtonsGroup() {
+  const {
+    handleRemoveAllItems,
+    handleResetToInitial,
+    handleMarkAllAsComplete,
+    handleMarkAllAsIcomplete,
+  } = useItemContext();
   return (
     <section className="button-group">
       {/* {buttonActions.map((action) => (
