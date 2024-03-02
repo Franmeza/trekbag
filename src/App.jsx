@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import ItemList from "./components/ItemList";
 import SideBar from "./components/SideBar";
 import { initialItems } from "./utils/constants";
+import AddItemForm from "./components/AddItemForm";
+import ButtonsGroup from "./components/ButtonsGroup";
 
 function App() {
   //Initializing the items state with the function below, we will improve performance by avoiding interaction with local storage in every re-render. It will do it only the first time it renders
@@ -77,13 +79,15 @@ function App() {
           handleDeleteItem={handleDeleteItem}
           handleToggleItem={handleToggleItem}
         />
-        <SideBar
-          handleAddItem={handleAddItem}
-          handleRemoveAllItems={handleRemoveAllItems}
-          handleResetToInitial={handleResetToInitial}
-          handleMarkAllAsComplete={handleMarkAllAsComplete}
-          handleMarkAllAsIcomplete={handleMarkAllAsIcomplete}
-        />
+        <SideBar>
+          <AddItemForm onAddItem={handleAddItem} />
+          <ButtonsGroup
+            handleRemoveAllItems={handleRemoveAllItems}
+            handleResetToInitial={handleResetToInitial}
+            handleMarkAllAsComplete={handleMarkAllAsComplete}
+            handleMarkAllAsIcomplete={handleMarkAllAsIcomplete}
+          />
+        </SideBar>
       </main>
       <Footer />
     </>
