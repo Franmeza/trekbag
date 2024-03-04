@@ -276,13 +276,14 @@ h1 {
 
 @media (max-height: 800px) {
   h1 {
-    top: -3%;
+    top: -10%;
   }
 }
 
 @media (max-width: 750px) {
   h1 {
-    top: -3%;
+    top: 0%;
+    font-size: 64px;
   }
   header {
     height: 50px;
