@@ -13,7 +13,7 @@ function ItemsContextProvider({ children }) {
       name: newItemName,
       packed: false,
     };
-    setItems([...items, newItem]);
+    setItems((state) => ({ items: [...state.items, newItem] }));
   };
 
   const handleDeleteItem = (id) => {
