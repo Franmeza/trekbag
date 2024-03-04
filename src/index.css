@@ -74,23 +74,8 @@ header {
   grid-row: 2 / 3;
   background-color: #fff;
   overflow-y: scroll;
-  /* scrollbar-color: red orange;
-  scrollbar-width: thin; */
   position: relative;
 }
-
-/* .item-list::-webkit-scrollbar {
-  width: 0;
-  width: 8px;
-}
-
-.item-list::-webkit-scrollbar-track {
-  background: #faf7f3;
-}
-
-.item-list::-webkit-scrollbar-thumb {
-  background-color: #f3f1ee;
-} */
 
 .item {
   display: flex;
@@ -147,11 +132,6 @@ label > input:checked {
   border-color: #6e6251;
   background-color: #6e6251;
 }
-
-/* label > input:focus,
-label > input:active {
-  outline-color: #a1988a;
-} */
 
 label > label {
   cursor: pointer;
@@ -291,6 +271,12 @@ h1 {
 @media (max-height: 850px) {
   h1 {
     top: 0%;
+  }
+}
+
+@media (max-height: 800px) {
+  h1 {
+    top: -3%;
   }
 }
 
